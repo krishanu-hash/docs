@@ -191,28 +191,12 @@ def update_risk_signals(self):
 ## Integration with Policy Engine
 
 The Context Accumulator provides context to the Policy Engine for every evaluation:
-```
-┌─────────────────┐         ┌─────────────────────┐
-│  Action Request │ ──────► │ Context Accumulator │
-└─────────────────┘         └──────────┬──────────┘
-                                       │
-                                       ▼
-                            ┌─────────────────────┐
-                            │   Policy Engine     │
-                            │                     │
-                            │  ┌───────────────┐  │
-                            │  │ Static Policy │  │
-                            │  └───────┬───────┘  │
-                            │          │          │
-                            │          ▼          │
-                            │  ┌───────────────┐  │
-                            │  │Context Eval   │◄─┼─── Evaluation Context
-                            │  └───────┬───────┘  │
-                            │          │          │
-                            │          ▼          │
-                            │     Decision        │
-                            └─────────────────────┘
-```
+
+<img 
+  src="/images/integration-with-policy-engine.png"
+  alt="AARM System Architecture"
+  style={{ maxWidth: "100%", height: "auto" }}
+/>
 
 ---
 

@@ -6,31 +6,12 @@ description: The six components that make up an AARM-compliant system.
 ## Architecture
 
 An AARM system consists of six components working together:
-```
-┌─────────────────────────────────────────────────────────────┐
-│                       AARM SYSTEM                           │
-├─────────────────────────────────────────────────────────────┤
-│                                                             │
-│   ┌──────────────────┐      ┌──────────────────┐            │
-│   │ Action Mediation │ ───► │ Policy Decision  │            │
-│   │ Layer (AML)      │      │ Point (PDP)      │            │
-│   └──────────────────┘      └────────┬─────────┘            │
-│                                      │                      │
-│                                      ▼                      │
-│                             ┌──────────────────┐            │
-│                             │ Policy Enforce-  │            │
-│                             │ ment Point (PEP) │            │
-│                             └────────┬─────────┘            │
-│                                      │                      │
-│         ┌────────────────────────────┼────────────────┐     │
-│         ▼                            ▼                ▼     │
-│  ┌─────────────┐          ┌──────────────┐    ┌─────────┐   │
-│  │  Approval   │          │   Receipt    │    │Telemetry│   │
-│  │  Service    │          │  Generator   │    │Exporter │   │
-│  └─────────────┘          └──────────────┘    └─────────┘   │
-│                                                             │
-└─────────────────────────────────────────────────────────────┘
-```
+
+<img 
+  src="/images/aarm_system_architecture.png"
+  alt="AARM System Architecture"
+  style={{ maxWidth: "100%", height: "auto" }}
+/>
 
 ---
 
