@@ -19,7 +19,6 @@
               "index",
               "problem",
               "definition",
-              "action-classification",
               "authors",
               "builders"
             ]
@@ -32,6 +31,7 @@
               "components/context-accumulator",
               "components/policy-engine",
               "components/approval-service",
+              "components/action-classification",
               "components/deferral-service",
               "components/receipts",
               "components/telemetry"
