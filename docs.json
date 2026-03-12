@@ -24,6 +24,13 @@
             ]
           },
           {
+            "group": "Conformance",
+            "pages": [
+              "conformance/requirements",
+              "conformance/testing"
+            ]
+          },
+          {
             "group": "System Components",
             "pages": [
               "components/overview",
@@ -65,13 +72,6 @@
               "threats/environmental-manipulation"
             ]
 
-          },
-          {
-            "group": "Conformance",
-            "pages": [
-              "conformance/requirements",
-              "conformance/testing"
-            ]
           },
           {
             "group": "Research Directions",
@@ -126,8 +126,8 @@
   "navbar": {
     "primary": {
       "type": "button",
-      "label": "Contribute",
-      "href": "https://github.com/aarm-dev/docs"
+      "label": "Join the community",
+      "href": "https://docs.google.com/forms/d/1kGsSkBAaEnGRonlaDNWzgz2ckAooPsT_92hEW8qrK0s/edit"
     }
   },
   "footer": {
