@@ -1,0 +1,284 @@
+---
+title: Research
+description: The foundational paper, open challenges, and community research aligned with the AARM specification.
+---
+
+<style>{`
+  @import url('https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist+Mono:wght@400;500&family=Geist:wght@400;500&display=swap');
+
+  .r-page { max-width: 720px; margin: 0 auto; padding: 0 1.5rem 6rem; font-family: 'Geist', sans-serif; }
+
+  /* hero */
+  .r-hero { padding: 4rem 0 3.5rem; border-bottom: 1px solid #e4e4e9; }
+  .r-hero h1 {
+    font-family: 'Instrument Serif', Georgia, serif;
+    font-size: clamp(2.2rem, 4vw, 3rem);
+    font-weight: 400;
+    color: #0a0a0f;
+    margin: 0 0 0.75rem;
+    line-height: 1.15;
+  }
+  .r-hero h1 em { font-style: italic; color: #0033ff; }
+  .r-hero p { font-size: 1rem; line-height: 1.7; color: #666; margin: 0; max-width: 540px; }
+
+  /* section */
+  .r-section { padding: 3rem 0 0; }
+  .r-section-label {
+    font-family: 'Geist Mono', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #0033ff;
+    margin-bottom: 1.5rem;
+  }
+
+  /* paper card */
+  .r-paper {
+    border: 1px solid #e4e4e9;
+    border-radius: 8px;
+    padding: 1.75rem;
+    background: #fff;
+    transition: box-shadow 0.18s;
+  }
+  .r-paper:hover { box-shadow: 0 4px 20px rgba(0,51,255,0.07); }
+  .r-paper-type {
+    font-family: 'Geist Mono', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: #999;
+    margin-bottom: 0.6rem;
+  }
+  .r-paper h2 {
+    font-family: 'Instrument Serif', Georgia, serif;
+    font-size: 1.25rem;
+    font-weight: 400;
+    color: #0a0a0f;
+    margin: 0 0 0.4rem;
+    line-height: 1.35;
+  }
+  .r-paper-meta {
+    font-size: 0.8rem;
+    color: #999;
+    font-family: 'Geist Mono', monospace;
+    margin-bottom: 0.9rem;
+  }
+  .r-paper p { font-size: 0.93rem; line-height: 1.7; color: #444; margin: 0 0 1.25rem; }
+  .r-paper-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    font-family: 'Geist Mono', monospace;
+    font-size: 0.75rem;
+    letter-spacing: 0.06em;
+    color: #0033ff;
+    text-decoration: none;
+    border-bottom: 1px solid #0033ff44;
+    padding-bottom: 1px;
+    transition: border-color 0.15s;
+  }
+  .r-paper-link:hover { border-color: #0033ff; }
+
+  /* challenges */
+  .r-challenges { display: flex; flex-direction: column; gap: 0; border: 1px solid #e4e4e9; border-radius: 8px; overflow: hidden; }
+  .r-challenge {
+    padding: 1.25rem 1.5rem;
+    border-bottom: 1px solid #e4e4e9;
+    display: grid;
+    grid-template-columns: 2rem 1fr;
+    gap: 0 1rem;
+    align-items: start;
+  }
+  .r-challenge:last-child { border-bottom: none; }
+  .r-challenge-num {
+    font-family: 'Geist Mono', monospace;
+    font-size: 0.7rem;
+    color: #0033ff;
+    padding-top: 0.15rem;
+    letter-spacing: 0.05em;
+  }
+  .r-challenge h4 { font-size: 0.92rem; font-weight: 500; color: #0a0a0f; margin: 0 0 0.25rem; }
+  .r-challenge p { font-size: 0.84rem; line-height: 1.6; color: #666; margin: 0; }
+
+  /* contribute card */
+  .r-contribute {
+    border: 1.5px dashed #c8c8d8;
+    border-radius: 8px;
+    padding: 2rem;
+    background: #fafafc;
+  }
+  .r-contribute h3 {
+    font-family: 'Instrument Serif', Georgia, serif;
+    font-size: 1.3rem;
+    font-weight: 400;
+    color: #0a0a0f;
+    margin: 0 0 0.5rem;
+  }
+  .r-contribute p { font-size: 0.9rem; line-height: 1.65; color: #666; margin: 0 0 1.25rem; }
+  .r-contribute-path {
+    display: inline-block;
+    background: #f0f0f8;
+    border: 1px solid #dddde8;
+    border-radius: 4px;
+    padding: 0.3rem 0.65rem;
+    font-family: 'Geist Mono', monospace;
+    font-size: 0.78rem;
+    color: #0033ff;
+    margin-bottom: 1.25rem;
+  }
+  .r-contribute-steps { list-style: none; padding: 0; margin: 0 0 1.5rem; display: flex; flex-direction: column; gap: 0.5rem; }
+  .r-contribute-steps li {
+    font-size: 0.88rem;
+    color: #555;
+    display: flex;
+    align-items: baseline;
+    gap: 0.5rem;
+  }
+  .r-contribute-steps li::before {
+    content: '—';
+    font-family: 'Geist Mono', monospace;
+    color: #bbb;
+    font-size: 0.75rem;
+    flex-shrink: 0;
+  }
+  .r-contribute-steps li code {
+    font-family: 'Geist Mono', monospace;
+    font-size: 0.78rem;
+    background: #ebebf5;
+    padding: 0.1rem 0.35rem;
+    border-radius: 3px;
+    color: #0033ff;
+  }
+  .r-btn-row { display: flex; gap: 0.75rem; flex-wrap: wrap; }
+  .r-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    padding: 0.55rem 1.1rem;
+    border-radius: 5px;
+    font-family: 'Geist Mono', monospace;
+    font-size: 0.75rem;
+    letter-spacing: 0.04em;
+    text-decoration: none;
+    transition: background 0.15s, color 0.15s;
+    border: 1.5px solid transparent;
+  }
+  .r-btn--primary { background: #0033ff; color: #fff; }
+  .r-btn--primary:hover { background: #0028cc; }
+  .r-btn--outline { border-color: #dddde8; color: #333; background: #fff; }
+  .r-btn--outline:hover { border-color: #0033ff; color: #0033ff; }
+`}</style>
+
+<div className="r-page">
+
+<header className="r-hero">
+  <h1>AARM <em>Research</em></h1>
+  <p>
+    The foundational specification, open problems in AI runtime security,
+    and community research published under the AARM framework.
+  </p>
+</header>
+
+{/* ── 1. CORE PAPER */}
+
+<section className="r-section">
+  <div className="r-section-label">Core Publication</div>
+  <div className="r-paper">
+    <div className="r-paper-type">arXiv Preprint · 2025</div>
+    <h2>AARM: Autonomous Action Runtime Management — A Category Specification for Securing AI Agent Actions at Runtime</h2>
+    <div className="r-paper-meta">Herman Erlich &nbsp;·&nbsp; arXiv:2602.09433</div>
+    <p>
+      Introduces AARM as a security category for AI agent runtime governance.
+      Defines the action-intercept lifecycle, Core conformance model, and
+      trust-tier framework. The canonical reference for all downstream
+      specification work and conformance evaluation.
+    </p>
+    <a
+      href="https://arxiv.org/abs/2602.09433"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="r-paper-link"
+    >
+      arxiv.org/abs/2602.09433 ↗
+    </a>
+  </div>
+</section>
+
+{/* ── 2. OPEN CHALLENGES */}
+
+<section className="r-section">
+  <div className="r-section-label">Open Challenges</div>
+  <div className="r-challenges">
+    <div className="r-challenge">
+      <span className="r-challenge-num">01</span>
+      <div>
+        <h4>Cross-agent trust propagation</h4>
+        <p>How should AARM trust tiers propagate across multi-agent pipelines where agents spawn sub-agents dynamically?</p>
+      </div>
+    </div>
+    <div className="r-challenge">
+      <span className="r-challenge-num">02</span>
+      <div>
+        <h4>Policy drift under fine-tuning</h4>
+        <p>Runtime policies may become inconsistent with model behavior after fine-tuning. Defining invariant policy surfaces is an open problem.</p>
+      </div>
+    </div>
+    <div className="r-challenge">
+      <span className="r-challenge-num">03</span>
+      <div>
+        <h4>Latency-preserving intercept</h4>
+        <p>Conformant action intercept adds overhead. Research into zero-latency or speculative intercept architectures is needed.</p>
+      </div>
+    </div>
+    <div className="r-challenge">
+      <span className="r-challenge-num">04</span>
+      <div>
+        <h4>Formal conformance verification</h4>
+        <p>Current conformance is evaluator-driven. Automated, reproducible verification methods for AARM Core conformance remain unsolved.</p>
+      </div>
+    </div>
+    <div className="r-challenge">
+      <span className="r-challenge-num">05</span>
+      <div>
+        <h4>Regulatory alignment</h4>
+        <p>Mapping AARM controls to emerging AI regulations (EU AI Act, NIST AI RMF, ISO 42001) requires ongoing harmonization work.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+{/* ── 3. CONTRIBUTE */}
+
+<section className="r-section">
+  <div className="r-section-label">Community Research</div>
+  <div className="r-contribute">
+    <h3>Publish your research here</h3>
+    <p>
+      Research aligned with the AARM specification is welcome. Fork the repo,
+      add your paper using the template below, and open a pull request.
+      Published papers live at:
+    </p>
+    <div className="r-contribute-path">/research/aligned/your-paper-title</div>
+    <ul className="r-contribute-steps">
+      <li>Fork <code>aarm-dev/aarm.dev</code> on GitHub</li>
+      <li>Copy the template from <code>/research/aligned/_template.mdx</code></li>
+      <li>Add your file to <code>/research/aligned/your-title.mdx</code></li>
+      <li>Open a pull request — reviewed by the TWG</li>
+    </ul>
+    <div className="r-btn-row">
+      <a
+        href="https://github.com/aarm-dev/aarm.dev/fork"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="r-btn r-btn--primary"
+      >
+        Fork on GitHub ↗
+      </a>
+      <a href="/research/aligned/_template" className="r-btn r-btn--outline">
+        View Template →
+      </a>
+    </div>
+  </div>
+</section>
+
+</div>
