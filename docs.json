@@ -61,7 +61,6 @@
               "threats/prompt-injection",
               "threats/malicious-tool-outputs",
               "threats/confused-deputy",
-              //"threats/over-privileged-credentials",
               "threats/data-exfiltration",
               "threats/goal-hijacking",
               "threats/intent-drift",
@@ -76,7 +75,6 @@
             "group": "Related Research",
             "pages": [
               "research/aligned",
-              "research/adjacent"
             ]
           }
         ]
