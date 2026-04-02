@@ -108,12 +108,21 @@ Noma Security was founded to address the enforcement gap that exists between AI 
 |---|---|
 | Website | [noma.security ↗](https://noma.security) |
 | AARM contact | AARM TWG liaison |
-| Conformance report | [Download PDF ↗](#) |
-| GitHub | — |
+| GitHub | — |e
 
   </Tab>
 
-  <Tab title="Technical research">
+  <Tab title="Conformance">
+
+### Conformance record
+
+| | |
+|---|---|
+| Specification version | AARM v0.1 |
+| Conformance tier | Core (R1–R6 MUST) |
+| Verified by | Herman Errico, AARM author |
+| Date | February 2025 |
+| Conformance report | [Download PDF ↗](#) |
 
 ### Architecture
 
@@ -127,24 +136,20 @@ The enforcement decision returns one of five outcomes defined in the AARM specif
 
 | Requirement | Description | Status |
 |---|---|---|
-| R1 | Action interception before execution | ✅ Met |
-| R2 | Policy-based authorization decision | ✅ Met |
-| R3 | Context accumulation across session | ✅ Met |
-| R4 | Five authorization decisions (ALLOW / BLOCK / DEFER / REDACT / ESCALATE) | ✅ Met |
+| R1 | Pre-Execution Interception | ✅ Met |
+| R2 | Context Accumulation | ✅ Met |
+| R3 | Policy Evaluation with Intent Alignment | ✅ Met |
+| R4 | Five authorization decisions (ALLOW / DENY / MODIFY / STEP_UP / DEFER) | ✅ Met |
 | R5 | Immutable audit log | ✅ Met |
-| R6 | Dedicated AARM system designation and documentation | ✅ Met |
+| R6 | Identity Binding | ✅ Met |
 
 #### Extended requirements (R7–R9 SHOULD)
 
 | Requirement | Description | Status |
 |---|---|---|
-| R7 | Semantic distance tracking | — Not verified |
-| R8 | Human escalation pathway | — Not verified |
-| R9 | Adversarial resistance | — Not verified |
-
-<Note>
-  Extended conformance verification is available on request. Contact [herman@aarm.dev](mailto:herman@aarm.dev) to initiate the extended testing protocol.
-</Note>
+| R7 | Semantic distance tracking | — ✅ Met |
+| R8 | Telemetry Export | — Not verified |
+| R9 | Least Privilege Enforcement | — ✅ Met |
 
 ### Publications & resources
 
@@ -158,98 +163,6 @@ The enforcement decision returns one of five outcomes defined in the AARM specif
 </CardGroup>
 
   </Tab>
-
-  <Tab title="Conformance">
-
-<Note type="success">
-  **AARM Core conformant** — This system has completed the full AARM Core testing protocol and satisfies requirements R1–R6 of the AARM specification v0.1. Conformance was verified by the AARM specification author.
-</Note>
-
-### Conformance record
-
-| | |
-|---|---|
-| Specification version | AARM v0.1 |
-| Conformance tier | Core (R1–R6 MUST) |
-| Verified by | Herman Errico, AARM author |
-| Date | February 2025 |
-| Conformance report | [Download PDF ↗](#) |
-
-### Core requirements (R1–R6)
-
-<Steps>
-  <Step title="R1 — Action interception">
-    The system intercepts agent action requests before any side effect occurs. Noma operates as a proxy that receives every tool call prior to forwarding.
-  </Step>
-  <Step title="R2 — Policy-based authorization">
-    Each action is evaluated against a configurable policy set. The system returns an authorization decision before execution proceeds.
-  </Step>
-  <Step title="R3 — Context accumulation">
-    The system maintains session-scoped context across the full agent interaction. Prior actions are available to the policy engine when evaluating subsequent requests.
-  </Step>
-  <Step title="R4 — Five authorization decisions">
-    The system supports all five AARM authorization outcomes: ALLOW, BLOCK, DEFER, REDACT, and ESCALATE.
-  </Step>
-  <Step title="R5 — Immutable audit log">
-    All authorization decisions and their inputs are written to a tamper-evident log before the action result is returned to the agent.
-  </Step>
-  <Step title="R6 — AARM system designation">
-    Noma refers to its product as an AARM system, maintains a dedicated page explaining conformance, and has active production customers with verified security posture.
-  </Step>
-</Steps>
-
-### Extended conformance (R7–R9)
-
-Extended requirements are not yet verified for this system.
-
-| Requirement | Description | Status |
-|---|---|---|
-| R7 | Semantic distance tracking | Not verified |
-| R8 | Human escalation pathway | Not verified |
-| R9 | Adversarial resistance | Not verified |
-
-  </Tab>
-
-  <Tab title="Integration guide">
-
-### Deploying Noma as your AARM system
-
-Noma can be deployed as a conformant AARM enforcement layer for any agent stack. The integration sits between your agent runtime and downstream tools or APIs — no changes to agent code are required.
-
-<Steps>
-  <Step title="Route agent traffic through Noma">
-    Configure your agent framework to proxy tool calls through the Noma enforcement endpoint. Noma supports major agent frameworks and MCP-compatible runtimes.
-  </Step>
-  <Step title="Define your policy set">
-    Write ALLOW / BLOCK / DEFER rules that reflect your organization's risk posture and compliance requirements. Noma provides a policy editor and a library of baseline templates for common use cases.
-  </Step>
-  <Step title="Enable audit logging">
-    Connect your SIEM or log aggregator to receive the AARM-compliant audit stream. Noma emits structured decision records for every action evaluated.
-  </Step>
-  <Step title="Reference your AARM system">
-    Document Noma as your AARM system in security documentation, vendor attestations, and compliance evidence packages. The conformance report can be attached directly to audit artifacts.
-  </Step>
-</Steps>
-
-### Resources
-
-<CardGroup cols={2}>
-  <Card title="API documentation" icon="code" href="https://noma.security">
-    Integration guides, SDK references, and configuration documentation.
-  </Card>
-  <Card title="AARM conformance report" icon="file-pdf" href="#">
-    The formal conformance evaluation, suitable for audit and vendor review.
-  </Card>
-  <Card title="AARM conformance requirements" icon="list-check" href="/conformance/requirements">
-    Full specification of R1–R9 and what each requirement means in practice.
-  </Card>
-  <Card title="Contact Noma" icon="envelope" href="https://noma.security">
-    Reach out to discuss deployment, evaluation access, or enterprise pricing.
-  </Card>
-</CardGroup>
-
-  </Tab>
-</Tabs>
 
 ---
 
